@@ -1,7 +1,7 @@
 # `tfstate-worker` ⛏
 
 A Terraform state backend using the [`http`](https://www.terraform.io/language/settings/backends/http), backed by
-Cloudflare Workers and R2, and cheap to run. Oh, and it supports locking 🔒.
+Cloudflare Workers and R2, so it is cheap to run. Oh, and it supports locking 🔒.
 
 The original code was moved from [`cmackenzie1/holster`](https://github.com/cmackenzie1/holster) to its own repository.
 You can read about the original
@@ -13,7 +13,7 @@ implementation [here](https://mirio.dev/2022/09/18/implementing-a-terraform-stat
 
 ## Getting Started
 
-1. Fork this repository and clone it to your local machine.
+1. Click the "Use this template" button to create a new repository from this template.
 2. Create an R2 bucket in your Cloudflare account, or use an existing one.
 3. Update `wrangler.toml` with your Cloudflare account ID and custom domain and bucket name.
 4. If using basic auth, add your credentials to your worker using `wrangler secret put TFSTATE_USERNAME`
