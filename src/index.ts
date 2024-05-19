@@ -27,7 +27,7 @@ export type LockInfo = {
 const app = new Hono<{ Bindings: Bindings }>();
 
 // Middleware for all routes
-app.use(logger(console.log));
+// app.use(logger());
 app.use(
 	"/states/*",
 	basicAuth({
