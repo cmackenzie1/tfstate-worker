@@ -1,0 +1,17 @@
+{
+	"compilerOptions": {
+		"noEmit": true,
+		"module": "esnext",
+		"target": "esnext",
+		"lib": ["esnext"],
+		"strict": true,
+		"moduleResolution": "node",
+		"types": [
+			"@cloudflare/workers-types",
+			"@cloudflare/vitest-pool-workers",
+			"@cloudflare/workers-types/experimental"
+		],
+		"skipLibCheck": true
+	},
+	"exclude": ["node_modules", "dist", "test", ".wrangler"]
+}

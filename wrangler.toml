@@ -1,0 +1,27 @@
+name = "tfstate"
+
+# TODO: Change this to your account ID
+account_id = "YOUR_ACCOUNT_ID"
+compatibility_date = "2024-04-03" # 2024-04-03 or later required for RPC
+compatibility_flags = ["nodejs_compat"]
+
+main = "src/index.ts"
+
+# TODO: Change this to your custom domain
+routes = [{ pattern = "tfstate.example.com", custom_domain = true }]
+
+r2_buckets = [
+    { binding = "TFSTATE_BUCKET", bucket_name = "tfstate" },
+]
+
+# TODO: You probably don't want to store your password in plaintext. `wrangler secret put PASSWORD` can help with that.
+[vars]
+USERNAME = "terraform"
+PASSWORD = "password"
+
+[durable_objects]
+bindings = [{ name = "TFSTATE_LOCK", class_name = "DurableLock" }]
+
+[[migrations]]
+tag = "v1"
+new_classes = ["DurableLock"]
