@@ -1,6 +1,5 @@
-import { Hono } from "hono";
+import { Hono, type MiddlewareHandler } from "hono";
 import { basicAuth } from "hono/basic-auth";
-import { logger } from "hono/logger";
 import type { DurableLock } from "./durableLock";
 
 export { DurableLock } from "./durableLock";
@@ -26,8 +25,25 @@ export type LockInfo = {
 
 const app = new Hono<{ Bindings: Bindings }>();
 
+const logger = (): MiddlewareHandler => async (c, next) => {
+	await next();
+
+	const rayId = c.req.header("cf-ray") || crypto.randomUUID();
+	const url = new URL(c.req.url);
+
+	const outgoing = {
+		method: c.req.method,
+		uri: url.pathname,
+		query: url.searchParams.toString(),
+		requestId: rayId,
+		status: c.res.status,
+	};
+
+	console.log("Response", outgoing);
+};
+
 // Middleware for all routes
-// app.use(logger());
+app.use(logger());
 app.use(
 	"/states/*",
 	basicAuth({
