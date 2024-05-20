@@ -1,5 +1,7 @@
 # `tfstate-worker` ⛏
 
+[![Test](https://github.com/cmackenzie1/tfstate-worker/actions/workflows/test.yaml/badge.svg?branch=main)](https://github.com/cmackenzie1/tfstate-worker/actions/workflows/test.yaml)
+
 A Terraform state backend using the [`http`](https://www.terraform.io/language/settings/backends/http), backed by
 Cloudflare Workers and R2, so it is cheap to run. Oh, and it supports locking 🔒.
 
