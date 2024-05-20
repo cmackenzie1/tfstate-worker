@@ -1,10 +1,15 @@
+# Run the following commands in the root of the project to test the example
+# `wrangler dev`
+# `cd example`
+# `terraform init`
+# `terraform apply`
 terraform {
   backend "http" {
     address        = "http://localhost:8787/states/tfstate-example"
     lock_address   = "http://localhost:8787/states/tfstate-example/lock"
-    lock_method    = "LOCK" # can also be "PUT"
+    lock_method = "LOCK" # can also be "PUT"
     unlock_address = "http://localhost:8787/states/tfstate-example/lock"
-    unlock_method  = "UNLOCK" # can also be "DELETE"
+    unlock_method = "UNLOCK" # can also be "DELETE"
     username       = "terraform"
     password       = "password"
   }
