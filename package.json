@@ -10,7 +10,7 @@
 		"format": "biome format --write ./"
 	},
 	"dependencies": {
-		"hono": "^4.5.11"
+		"hono": "^4.6.1"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3",
