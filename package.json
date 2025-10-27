@@ -13,11 +13,11 @@
 		"hono": "^4.9.4"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.2.2",
-		"@cloudflare/vitest-pool-workers": "^0.8.66",
+		"@biomejs/biome": "2.3.1",
+		"@cloudflare/vitest-pool-workers": "^0.10.0",
 		"@cloudflare/workers-types": "^4.20250823.0",
-		"typescript": "^5.9.2",
-		"vitest": "3.2.4",
+		"typescript": "^5.9.3",
+		"vitest": "4.0.3",
 		"wrangler": "^4.4.0"
 	}
 }
